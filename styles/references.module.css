@@ -1,0 +1,8 @@
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  .refContainer {
+    @apply overflow-x-clip;
+  }
+}
