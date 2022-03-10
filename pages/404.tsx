@@ -10,7 +10,7 @@ const custom404: VoidFunctionComponent = () => {
       <Head>
         <title>404 | Page not Found</title>
       </Head>
-      <div className='grid place-items-center min-h-[calc(100vh-4rem)]'>
+      <div className='fixed inset-0 z-[9999] overflow-y-hidden bg-white grid place-items-center min-h-[calc(100vh-4rem)]'>
         <div className='flex flex-col gap-4 items-center'>
           <motion.div initial={{ x: 300 }} animate={{ x: 0 }}>
             <span className='text-7xl'>404 | Page not found</span>
@@ -22,10 +22,10 @@ const custom404: VoidFunctionComponent = () => {
             initial={{ y: 150 }}
             animate={{ y: 0 }}
             type='button'
-            className='bg-sky-200 text-blue-700 rounded-full border-transparent border-4  hover:text-white hover:border-sky-100 mt-4'
+            className='bg-sky-200 text-blue-800 rounded-full border-transparent border-4  hover:text-white hover:border-sky-100 mt-4'
           >
             <Link href='/'>
-              <a className='p-[1em] font-semibold inline-block'>Return Home</a>
+              <a className='p-[1em] font-bold inline-block'>Return Home</a>
             </Link>
           </motion.button>
         </div>

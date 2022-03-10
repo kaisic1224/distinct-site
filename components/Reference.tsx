@@ -1,4 +1,4 @@
-import React from "react";
+import React, { VoidFunctionComponent } from "react";
 import { motion, Transition } from "framer-motion";
 import { FaStar } from "react-icons/fa";
 import { reference } from "./References";
@@ -14,7 +14,7 @@ const references: reference[] = [
   }
 ];
 
-const Reference = () => {
+const Reference: VoidFunctionComponent = () => {
   const spring: Transition = {
     type: "spring",
     damping: 20,
@@ -26,7 +26,16 @@ const Reference = () => {
       transition={spring}
       className='p-6 max-w-sm min-w-[20rem] bg-sky-300 rounded-md'
     >
-      <ReferenceHeader reference={references[0]} />
+      <div className='flex justify-between mb-2'>
+        <span className='font-semibold'>{references[0].user.name}</span>
+        <div className='flex gap-1'>
+          <FaStar className='fill-yellow-500' />
+          <FaStar className='fill-yellow-500' />
+          <FaStar className='fill-yellow-500' />
+          <FaStar className='fill-yellow-500' />
+          <FaStar className='fill-yellow-500' />
+        </div>
+      </div>
       {references[0].review}
     </motion.article>
   );

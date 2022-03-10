@@ -1,7 +1,11 @@
-import { useState, useLayoutEffect } from "react";
-import { motion } from "framer-motion";
+import { useState, useLayoutEffect, VoidFunctionComponent } from "react";
+import {
+  motion,
+  motionValue,
+  useTransform,
+  useViewportScroll
+} from "framer-motion";
 import Reference from "./Reference";
-import styles from "../styles/references.module.css";
 
 export interface reference {
   user: {
@@ -11,41 +15,46 @@ export interface reference {
   review: string;
 }
 
-const References = () => {
-  const [offset, setOffset] = useState(0);
-  const scroll = () => {
-    setOffset(window.scrollY);
-  };
+const References: VoidFunctionComponent = () => {
+  const { scrollY } = useViewportScroll();
+  const x = motionValue(scrollY);
+
   useLayoutEffect(() => {
-    window.addEventListener("scroll", () => scroll());
+    const changeScroll = () => {
+      x.set(scrollY);
+    };
+    window.addEventListener("scroll", () => changeScroll());
     return () => {
-      window.removeEventListener("scroll", () => scroll());
+      window.removeEventListener("scroll", () => changeScroll());
     };
   }, []);
 
   return (
     <section>
-      <h2 className='text-center text-5xl'>Customer Sastisfaction</h2>
-      <div className={`${styles.refContainer} mt-16`}>
+      <h2 className='text-center text-5xl font-bold'>Customer Sastisfaction</h2>
+      <div className='overflow-x-clip mt-16'>
         <div className='flex gap-4'>
           <motion.div
             className='z-50 shadow-2xl'
-            animate={{ scale: 1.1, x: offset * 2, opacity: 1 }}
-            initial={{ opacity: 0 }}
+            whileInView={{ scale: 1.1, opacity: 1 }}
+            initial={{ opacity: 0, scale: 0 }}
+            style={{ x }}
           >
             <Reference />
           </motion.div>
           <motion.div
             className='z-30 ml-8 shadow-xl'
-            animate={{ x: -offset / 4, y: 50, opacity: 1 }}
-            initial={{ opacity: 0 }}
+            whileInView={{ scale: 1, y: 50, opacity: 1 }}
+            initial={{ opacity: 0, scale: 0 }}
+            style={{ x }}
           >
             <Reference />
           </motion.div>
           <motion.div
             className='-ml-8 z-10 shadow-xl'
-            animate={{ scale: 0.9, x: offset / 6, y: -50, opacity: 1 }}
-            initial={{ opacity: 0 }}
+            whileInView={{ scale: 0.9, y: -50, opacity: 1 }}
+            initial={{ opacity: 0, scale: 0 }}
+            style={{ x }}
           >
             <Reference />
           </motion.div>
@@ -53,22 +62,25 @@ const References = () => {
         <div className='flex gap-4'>
           <motion.div
             className='-ml-8 z-10 shadow-xl'
-            animate={{ x: offset / 6, y: -15, opacity: 1 }}
-            initial={{ opacity: 0 }}
+            whileInView={{ scale: 1, y: -15, opacity: 1 }}
+            initial={{ opacity: 0, scale: 0 }}
+            style={{ x }}
           >
             <Reference />
           </motion.div>
           <motion.div
             className='ml-8 z-10 shadow-xl'
-            animate={{ scale: 0.9, x: offset / 4, y: 55, opacity: 1 }}
-            initial={{ opacity: 0 }}
+            whileInView={{ scale: 0.9, y: 55, opacity: 1 }}
+            initial={{ opacity: 0, scale: 0 }}
+            style={{ x }}
           >
             <Reference />
           </motion.div>
           <motion.div
             className='ml-8 z-10 shadow-2xl'
-            animate={{ scale: 1.05, x: -offset / 5, y: -35, opacity: 1 }}
-            initial={{ opacity: 0 }}
+            whileInView={{ scale: 1.05, y: -35, opacity: 1 }}
+            initial={{ opacity: 0, scale: 0 }}
+            style={{ x }}
           >
             <Reference />
           </motion.div>
@@ -76,22 +88,25 @@ const References = () => {
         <div className='flex gap-4'>
           <motion.div
             className='-ml-8 z-10 shadow-xl'
-            animate={{ scale: 0.8, x: offset, y: 25, opacity: 1 }}
-            initial={{ opacity: 0 }}
+            whileInView={{ scale: 0.8, y: 25, opacity: 1 }}
+            initial={{ opacity: 0, scale: 0 }}
+            style={{ x }}
           >
             <Reference />
           </motion.div>
           <motion.div
             className='z-10 shadow-2xl'
-            animate={{ scale: 0.9, x: offset / 2, y: 70, opacity: 1 }}
-            initial={{ opacity: 0 }}
+            whileInView={{ scale: 0.9, y: 70, opacity: 1 }}
+            initial={{ opacity: 0, scale: 0 }}
+            style={{ x }}
           >
             <Reference />
           </motion.div>
           <motion.div
             className='ml-20 z-10 shadow-2xl'
-            animate={{ scale: 1.05, x: -offset * 0.75, opacity: 1 }}
-            initial={{ opacity: 0 }}
+            whileInView={{ scale: 1.05, opacity: 1 }}
+            initial={{ opacity: 0, scale: 0 }}
+            style={{ x }}
           >
             <Reference />
           </motion.div>

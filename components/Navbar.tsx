@@ -9,8 +9,8 @@ const Navbar: VoidFunctionComponent = () => {
       <div>
         <Link href='/'>
           <a
-            className={`font-semibold ${
-              router.pathname === "/" ? "hover:text-blue-400" : ""
+            className={`font-medium hover:text-blue-400 ${
+              router.pathname === "/" ? "text-blue-400" : ""
             }`}
           >
             d1st1nct_kicks
@@ -21,8 +21,8 @@ const Navbar: VoidFunctionComponent = () => {
         <li>
           <Link href='/contact'>
             <a
-              className={`font-semibold ${
-                router.pathname === "/contact" ? "hover:text-blue-400" : ""
+              className={`font-medium hover:text-blue-400 ${
+                router.pathname === "/contact" ? "text-blue-400" : ""
               }`}
             >
               Contact
@@ -32,8 +32,8 @@ const Navbar: VoidFunctionComponent = () => {
         <li>
           <Link href='/apparel'>
             <a
-              className={`font-semibold ${
-                router.pathname === "/apparel" ? "hover:text-blue-400" : ""
+              className={`font-medium hover:text-blue-400 ${
+                router.pathname === "/apparel" ? "text-blue-400" : ""
               }`}
             >
               Apparel
@@ -43,8 +43,8 @@ const Navbar: VoidFunctionComponent = () => {
         <li>
           <Link href='/signup'>
             <a
-              className={`font-semibold ${
-                router.pathname === "/signup" ? "hover:text-blue-400" : ""
+              className={`font-medium hover:text-blue-400 ${
+                router.pathname === "/signup" ? "text-blue-400" : ""
               }`}
             >
               Register

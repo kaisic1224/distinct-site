@@ -1,9 +1,8 @@
-import React from "react";
+import React, { VoidFunctionComponent } from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
-import { NextPage } from "next";
 
-const Item: NextPage = () => {
+const Item: VoidFunctionComponent = () => {
   return (
     <motion.div className='transition-shadow hover:shadow-lg'>
       <Image src='/art.jpg' width={245} height={206} />

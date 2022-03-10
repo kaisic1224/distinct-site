@@ -2,7 +2,6 @@ import React from "react";
 import type { NextPage } from "next";
 
 import Head from "next/head";
-import { FaEnvelope } from "react-icons/fa";
 import Image from "next/image";
 
 const contact: NextPage = () => {
@@ -21,9 +20,8 @@ const contact: NextPage = () => {
           <form action='' className='flex flex-col gap-8'>
             <label htmlFor=''></label>
             <div className='relative'>
-              <FaEnvelope className='absolute w-8 h-8 top-[2px] left-2' />
               <input
-                className='pl-11 text-3xl bg-slate-400 bg-opacity-30 rounded-sm'
+                className='p-2 text-3xl bg-slate-400 bg-opacity-30 rounded-sm'
                 type='email'
                 placeholder='Enter an email'
                 onChange={(e) => {
