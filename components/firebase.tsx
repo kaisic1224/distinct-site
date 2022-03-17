@@ -1,8 +1,8 @@
-import { getApp, getApps, initializeApp } from "firebase/app";
+import { FirebaseOptions, getApp, getApps, initializeApp } from "firebase/app";
 import { getAuth } from "firebase/auth";
 import { getFirestore } from "firebase/firestore";
 
-const firebaseConfig = {
+const firebaseConfig: FirebaseOptions = {
   apiKey: process.env.DISTINCT_KICKS_API_KEY,
   authDomain: process.env.DISTINCT_KICKS_AUTH_DOMAIN,
   projectId: process.env.DISTINCT_KICKS_PROJECT_ID,

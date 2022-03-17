@@ -1,4 +1,4 @@
-import { useState, useLayoutEffect, VoidFunctionComponent } from "react";
+import { useLayoutEffect, VoidFunctionComponent } from "react";
 import {
   motion,
   motionValue,
@@ -15,14 +15,49 @@ export interface reference {
   review: string;
 }
 
+const header = {
+  show: {
+    transition: {
+      staggerChildren: 0.03
+    }
+  }
+};
+
+const letters = {
+  hidden: {
+    y: 100
+  },
+  show: {
+    y: 0,
+    transition: {
+      ease: "easeOut",
+      duration: 0.65
+    }
+  }
+};
+
+const customerLetters = ["C", "u", "s", "t", "o", "m", "e", "r"];
+const satisfactionLetters = [
+  { _lId: "S", k: 1 },
+  { _lId: "a", k: 2 },
+  { _lId: "t", k: 3 },
+  { _lId: "i", k: 4 },
+  { _lId: "s", k: 5 },
+  { _lId: "f", k: 6 },
+  { _lId: "a", k: 7 },
+  { _lId: "c", k: 8 },
+  { _lId: "t", k: 9 },
+  { _lId: "i", k: 10 },
+  { _lId: "o", k: 11 },
+  { _lId: "n", k: 12 }
+];
+
 const References: VoidFunctionComponent = () => {
   const { scrollY } = useViewportScroll();
-  const x = motionValue(scrollY);
+  const x = motionValue(0);
 
   useLayoutEffect(() => {
-    const changeScroll = () => {
-      x.set(scrollY);
-    };
+    const changeScroll = () => {};
     window.addEventListener("scroll", () => changeScroll());
     return () => {
       window.removeEventListener("scroll", () => changeScroll());
@@ -31,7 +66,62 @@ const References: VoidFunctionComponent = () => {
 
   return (
     <section>
-      <h2 className='text-center text-5xl font-bold'>Customer Sastisfaction</h2>
+      <div className='text-6xl font-medium text-slate-800 px-8'>
+        <motion.div
+          layout
+          variants={header}
+          initial='hidden'
+          whileInView='show'
+          viewport={{ once: true }}
+          className='flex justify-start overflow-hidden relative'
+        >
+          {customerLetters.map((letter) => {
+            return (
+              <motion.span
+                layout
+                key={letter}
+                className='cursor-default'
+                variants={letters}
+                whileHover={{
+                  color: "rgb(186 230 253)",
+                  transition: {
+                    duration: 0.1
+                  }
+                }}
+                style={{ transformPerspective: "100px" }}
+              >
+                {letter}
+              </motion.span>
+            );
+          })}
+        </motion.div>
+        <motion.div
+          variants={header}
+          initial='hidden'
+          whileInView='show'
+          viewport={{ once: true }}
+          className='flex justify-start overflow-hidden mt-2 ml-28 relative'
+        >
+          {satisfactionLetters.map((letter) => {
+            return (
+              <motion.span
+                key={letter.k}
+                layout
+                className='cursor-default'
+                variants={letters}
+                whileHover={{
+                  color: "rgb(186 230 253)",
+                  transition: {
+                    duration: 0.1
+                  }
+                }}
+              >
+                {letter._lId}
+              </motion.span>
+            );
+          })}
+        </motion.div>
+      </div>
       <div className='overflow-x-clip mt-16'>
         <div className='flex gap-4'>
           <motion.div

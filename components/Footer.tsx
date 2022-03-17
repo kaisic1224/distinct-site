@@ -61,7 +61,7 @@ const Footer: VoidFunctionComponent = () => {
     >
       <motion.h2
         variants={header}
-        className='text-center text-4xl uppercase font-bold xl:tracking-widest xs:mb-2 md:mb-0'
+        className='text-center text-4xl uppercase font-bold xl:tracking-widest xs:mb-2 md:mb-0 text-gray-800'
       >
         Stay connected
       </motion.h2>
@@ -75,7 +75,7 @@ const Footer: VoidFunctionComponent = () => {
           initial='hidden'
           whileInView='show'
           viewport={{ once: true, margin: "25px" }}
-          className='absolute md:w-5/6 h-[2px] bg-black left-0 top-4'
+          className='absolute md:w-5/6 h-[2px] bg-gray-800 left-0 top-4'
         />
         <motion.div
           variants={vars}
