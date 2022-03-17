@@ -4,6 +4,8 @@ import React from "react";
 import { itemInterface } from ".";
 import Head from "next/head";
 import { GetStaticPaths, GetStaticProps } from "next";
+import { motion } from "framer-motion";
+import Image from "next/image";
 
 const item: NextPage<{ item: itemInterface }> = ({ item }) => {
   const { itemID } = useRouter().query;
@@ -12,8 +14,9 @@ const item: NextPage<{ item: itemInterface }> = ({ item }) => {
       <Head>
         <title>Apparel</title>
       </Head>
-      <div>{itemID}</div>
-      <div>{item}</div>
+      <motion.div layoutId='main-img'>
+        <Image src={"/art.jpg"} width={170} height={80}></Image>
+      </motion.div>
     </>
   );
 };

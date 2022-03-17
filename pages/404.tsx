@@ -3,6 +3,7 @@ import { VoidFunctionComponent } from "react";
 import Link from "next/link";
 import Head from "next/head";
 import { motion } from "framer-motion";
+import { GetStaticProps } from "next";
 
 const custom404: VoidFunctionComponent = () => {
   return (
@@ -35,3 +36,9 @@ const custom404: VoidFunctionComponent = () => {
 };
 
 export default custom404;
+
+export const getStaticProps: GetStaticProps = async () => {
+  return {
+    notFound: true
+  };
+};
