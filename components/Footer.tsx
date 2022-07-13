@@ -61,7 +61,7 @@ const Footer: VoidFunctionComponent = () => {
     >
       <motion.h2
         variants={header}
-        className='text-center text-4xl uppercase font-bold xl:tracking-widest xs:mb-2 md:mb-0 text-gray-800'
+        className='text-center text-4xl uppercase font-bold xl:tracking-widest xs:mb-2 md:mb-0 text-black'
       >
         Stay connected
       </motion.h2>
